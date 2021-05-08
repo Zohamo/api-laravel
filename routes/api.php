@@ -37,3 +37,9 @@ Route::get('/boardgames/{id}', 'BoardGameController@show');
 /* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 }); */
+
+/**
+ * Proot records
+ */
+Route::get('/releases', 'ReleaseController@index');
+Route::get('/releases/{ref}', 'ReleaseController@show');
