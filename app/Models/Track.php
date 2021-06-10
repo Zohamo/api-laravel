@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ReleaseLink extends Model
+class Track extends Model
 {
     use HasFactory;
 
@@ -16,29 +16,29 @@ class ReleaseLink extends Model
      *
      * @var string
      */
-    protected $table = 'prt_release_links';
+    protected $table = 'prt_tracks';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['id_release', 'id_platform', 'url'];
+    protected $fillable = ['id_release', 'position', 'bonus', 'artist', 'title', 'url', 'date'];
 
     /**
      * The attributes that won't be sent back.
      *
      * @var array
      */
-    protected $hidden = ['id', 'id_release', 'id_platform'];
+    protected $hidden = ['id'];
 
     /**
-     * The link's platform.
+     * The track's information.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function platform()
+    public function info()
     {
-        return $this->hasOne('App\Models\Platform', 'id', 'id_platform');
+        return $this->hasOne('App\Models\TrackInfo', 'id_track', 'id');
     }
 }

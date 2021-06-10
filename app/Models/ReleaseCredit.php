@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class ReleaseCredit extends Model
 {
     use HasFactory;
 
@@ -16,20 +16,22 @@ class Type extends Model
      *
      * @var string
      */
-    protected $table = 'bg_types';
+    protected $table = 'prt_release_credits';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name_type'];
+    protected $fillable = ['id_release', 'id_credit_type', 'content'];
 
     /**
-     * The type of game.
+     * The credit's type (music, artwork,..).
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function boardgames()
+    public function type()
     {
-        return $this->hasMany('App\BoardGame', 'fk_id_type');
+        return $this->hasOne('App\Models\CreditType', 'id', 'id_credit_type');
     }
 }

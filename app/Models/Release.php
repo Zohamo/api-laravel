@@ -31,20 +31,34 @@ class Release extends Model
         'artist',
         'title',
         'description',
+        'style',
         'disc_number',
-        'bandcamp_id',
-        'bandcamp_url',
-        'fma_url',
-        'internet_archive_url',
-        'discogs_url',
-        'jamendo_url',
-        'lastfm_url',
     ];
+
+    /**
+     * The release's tracklist.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tracks()
+    {
+        return $this->hasMany('App\Models\Track', 'id_release', 'id')->with('info');
+    }
+
+    /**
+     * The release's credits.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function credits()
+    {
+        return $this->hasMany('App\Models\ReleaseCredit', 'id_release', 'id')->with('type');
+    }
 
     /**
      * The release's external links.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function links()
     {

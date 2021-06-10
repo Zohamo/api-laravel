@@ -43,3 +43,6 @@ Route::get('/boardgames/{id}', 'BoardGameController@show');
  */
 Route::get('/releases', 'ReleaseController@index');
 Route::get('/releases/{ref}', 'ReleaseController@show');
+
+Route::get('/proojects', 'ProojectController@index');
+Route::get('/proojects/{slug}', 'ProojectController@show');
