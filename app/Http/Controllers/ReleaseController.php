@@ -15,7 +15,7 @@ class ReleaseController extends Controller
     public function index()
     {
         return Release
-            ::select('ref', 'slug', 'artist', 'title', 'disc_number', 'bandcamp_id', 'date_published', 'date_modified')
+            ::select('ref', 'slug', 'artist', 'title', 'style', 'disc_number', 'bandcamp_id', 'date_published', 'date_modified')
             ->orderBy('date_modified', 'DESC')
             ->get();
     }
