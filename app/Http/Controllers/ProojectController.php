@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Prooject;
-use App\Models\Track;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ProojectController extends Controller
 {

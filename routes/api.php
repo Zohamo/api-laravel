@@ -26,23 +26,15 @@ Route::get('/', function () {
 // Route::post('/login', 'AuthController@login');
 // Route::middleware('auth:sanctum')->post('/logout', 'AuthController@logout');
 
-/**
- * Board Games
- */
-
-Route::get('/boardgames', 'BoardGameController@index');
-Route::get('/boardgames/{id}', 'BoardGameController@show');
-// Route::middleware('auth:sanctum')->post('/types', 'TypeController@store');
-
 /* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 }); */
 
-/**
- * Proot records
- */
-Route::get('/releases', 'ReleaseController@index');
-Route::get('/releases/{ref}', 'ReleaseController@show');
+Route::get('/artists', 'ArtistController@index');
+Route::get('/artists/{slug}', 'ArtistController@show');
 
 Route::get('/proojects', 'ProojectController@index');
 Route::get('/proojects/{slug}', 'ProojectController@show');
+
+Route::get('/releases', 'ReleaseController@index');
+Route::get('/releases/{ref}', 'ReleaseController@show');
