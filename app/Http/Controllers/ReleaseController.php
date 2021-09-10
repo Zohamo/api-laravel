@@ -13,9 +13,8 @@ class ReleaseController extends Controller
      */
     public function index()
     {
-        return Release
-            ::select('ref', 'slug', 'artist', 'title', 'style', 'disc_number', 'bandcamp_id', 'date_published', 'date_modified')
-            ->orderBy('date_modified', 'DESC')
+        return Release::select('ref', 'slug', 'artist', 'title', 'style', 'disc_number', 'bandcamp_id', 'created_at', 'updated_at')
+            ->orderBy('updated_at', 'DESC')
             ->get();
     }
 
@@ -28,7 +27,7 @@ class ReleaseController extends Controller
     public function show(string $ref)
     {
         return $ref === 'last'
-            ? response(Release::with('links')->orderBy('date_modified', 'desc')->first())
+            ? response(Release::with('links')->orderBy('updated_at', 'DESC')->first())
             : response(
                 Release::with(['tracks', 'credits', 'links'])
                     ->where('ref', '=', $ref)

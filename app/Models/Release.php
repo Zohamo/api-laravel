@@ -9,8 +9,6 @@ class Release extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
-
     /**
      * The table associated with the model.
      *
@@ -26,8 +24,8 @@ class Release extends Model
     protected $fillable = [
         'reference',
         'slug',
-        'date_published',
-        'date_modified',
+        'created_at',
+        'updated_at',
         'artist',
         'title',
         'description',
