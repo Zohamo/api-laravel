@@ -36,5 +36,7 @@ Route::get('/artists/{slug}', 'ArtistController@show');
 Route::get('/proojects', 'ProojectController@index');
 Route::get('/proojects/{slug}', 'ProojectController@show');
 
+Route::get('/products', 'ProductController@index');
+
 Route::get('/releases', 'ReleaseController@index');
 Route::get('/releases/{ref}', 'ReleaseController@show');
