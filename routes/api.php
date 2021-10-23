@@ -33,6 +33,9 @@ Route::get('/', function () {
 Route::get('/artists', 'ArtistController@index');
 Route::get('/artists/{slug}', 'ArtistController@show');
 
+Route::get('/movies', 'MovieController@index');
+Route::get('/movies/{slug}', 'MovieController@show');
+
 Route::get('/proojects', 'ProojectController@index');
 Route::get('/proojects/{slug}', 'ProojectController@show');
 
