@@ -15,7 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return ['message' => "API works !"];
+    return [
+        "/artists",
+        "/artists/{slug}",
+        "/movies",
+        "/movies/{slug}",
+        "/proojects",
+        "/proojects/{slug}",
+        "/products",
+        "/releases",
+        "/releases/{ref}",
+    ];
 });
 
 /**
